@@ -12,8 +12,8 @@ gem 'high_voltage'
 gem 'jquery-rails'
 gem 'octokit'
 gem 'omniauth-github'
-gem 'pg'
 gem 'rails', '4.0.4'
+gem 'mysql2'
 gem 'rubocop'
 gem 'sass-rails', '~> 4.0.2'
 gem 'sentry-raven'
@@ -35,6 +35,14 @@ group :test do
   gem 'shoulda-matchers'
   gem 'webmock'
 end
+
+group :deploy do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+end
+
 
 group :staging, :production do
   gem 'rails_12factor'
