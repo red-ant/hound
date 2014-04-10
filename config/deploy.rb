@@ -6,7 +6,7 @@ set :deploy_to, "/home/deploy/apps/#{fetch(:application)}"
 set :scm, :git
 set :format, :pretty
 set :log_level, :debug
-set :linked_files, %w{.env}
+set :linked_files, %w{.env config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :keep_releases, 5
 set :rvm_ruby_string, `rvm current`.chomp!

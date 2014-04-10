@@ -123,6 +123,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.2)
     multipart-post (1.2.0)
+    mysql2 (0.3.15)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
@@ -148,7 +149,6 @@ GEM
     parser (2.1.4)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
-    pg (0.17.0)
     polyglot (0.3.4)
     powerpack (0.0.9)
     rack (1.5.2)
@@ -268,9 +268,9 @@ DEPENDENCIES
   high_voltage
   jquery-rails
   launchy
+  mysql2
   octokit
   omniauth-github
-  pg
   rails (= 4.0.4)
   rails_12factor
   rspec-rails (>= 2.14)
