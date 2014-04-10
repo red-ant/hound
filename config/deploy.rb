@@ -6,15 +6,17 @@ set :deploy_to, "/home/deploy/apps/#{fetch(:application)}"
 set :scm, :git
 set :format, :pretty
 set :log_level, :debug
-set :linked_files, %w{.env config/database.yml}
+set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :keep_releases, 5
 set :rvm_ruby_string, `rvm current`.chomp!
+set :delayed_job_args, "-n 2"
 namespace :deploy do
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
+      invoke 'delayed_job:restart'
       execute "sudo god restart #{fetch(:application)}_unicorn"
     end
   end
