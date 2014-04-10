@@ -19,6 +19,7 @@ gem 'sass-rails', '~> 4.0.2'
 gem 'sentry-raven'
 gem 'uglifier', '>= 1.0.3'
 gem 'unicorn'
+gem 'therubyracer'
 
 group :development, :test do
   gem 'debugger'
