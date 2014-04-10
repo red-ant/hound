@@ -36,6 +36,14 @@ group :test do
   gem 'webmock'
 end
 
+group :deploy do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+end
+
+
 group :staging, :production do
   gem 'rails_12factor'
 end
