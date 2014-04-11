@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140327142505) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "builds", force: true do |t|
     t.text     "violations"
     t.integer  "repo_id"
@@ -53,10 +50,12 @@ ActiveRecord::Schema.define(version: 20140327142505) do
   create_table "repos", force: true do |t|
     t.integer "github_id",                        null: false
     t.boolean "active",           default: false, null: false
+    t.integer "hook_id"
     t.string  "name",                             null: false
     t.string  "full_github_name",                 null: false
-    t.integer "hook_id"
   end
+
+  add_index "repos", ["github_id"], name: "index_repos_on_user_id_and_github_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at",      null: false
